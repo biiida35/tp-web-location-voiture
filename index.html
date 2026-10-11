@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auto Rent - Location de voitures</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- En-tête -->
+    <header>
+        <h1>AUTO RENT</h1>
+        <p>Agence de location de voitures</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#prix">Prix</a>
+        <a href="#reservation">Réservation</a>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main>
+
+        <!-- Accueil -->
+        <section id="accueil">
+
+            <h2>Bienvenue chez Auto Rent</h2>
+
+            <p>
+                Auto Rent vous propose des voitures adaptées à vos besoins
+                pour vos déplacements professionnels ou personnels.
+            </p>
+
+        </section>
+
+
+        <!-- Catégories -->
+        <section id="categories">
+
+            <h2>Nos catégories de véhicules</h2>
+
+            <div class="categories">
+
+                <div class="category">
+                    <img src="images/citadine.jpg" alt="Voiture citadine">
+
+                    <h3>Citadine</h3>
+
+                    <p>
+                        Des voitures compactes et économiques,
+                        idéales pour les déplacements en ville.
+                    </p>
+                </div>
+
+
+                <div class="category">
+                    <img src="images/berline.jpg" alt="Voiture berline">
+
+                    <h3>Berline</h3>
+
+                    <p>
+                        Des voitures confortables adaptées
+                        aux longs trajets.
+                    </p>
+                </div>
+
+
+                <div class="category">
+                    <img src="images/commerciale.jpg" alt="Voiture commerciale">
+
+                    <h3>Commerciale</h3>
+
+                    <p>
+                        Des véhicules adaptés au transport
+                        de marchandises.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Catalogue -->
+        <section id="catalogue">
+
+            <h2>Catalogue des véhicules</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Véhicule</th>
+                        <th>Puissance</th>
+                        <th>Prix / jour</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Citadine</td>
+                        <td>Renault Clio</td>
+                        <td>90 CV</td>
+                        <td>120 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Citadine</td>
+                        <td>Peugeot 208</td>
+                        <td>100 CV</td>
+                        <td>130 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Berline</td>
+                        <td>Peugeot 508</td>
+                        <td>130 CV</td>
+                        <td>180 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Berline</td>
+                        <td>Volkswagen Passat</td>
+                        <td>150 CV</td>
+                        <td>200 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Commerciale</td>
+                        <td>Renault Kangoo</td>
+                        <td>95 CV</td>
+                        <td>150 DT</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- Prix -->
+        <section id="prix">
+
+            <h2>Prix</h2>
+
+            <p>
+                Les prix sont calculés en fonction du véhicule choisi
+                et du nombre de jours de location.
+            </p>
+
+        </section>
+
+
+        <!-- Réservation -->
+        <section id="reservation">
+
+            <h2>Réservation</h2>
+
+            <form id="reservationForm">
+
+                <div>
+                    <label for="nom">Nom et prénom :</label>
+                    <input type="text" id="nom">
+                </div>
+
+                <div>
+                    <label for="email">Email :</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div>
+                    <label for="telephone">Téléphone :</label>
+                    <input type="tel" id="telephone">
+                </div>
+
+                <div>
+                    <label for="categorie">Catégorie :</label>
+
+                    <select id="categorie">
+                        <option value="">-- Sélectionner --</option>
+                        <option value="citadine">Citadine</option>
+                        <option value="berline">Berline</option>
+                        <option value="commerciale">Commerciale</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="voiture">Voiture :</label>
+
+                    <select id="voiture">
+                        <option value="">-- Sélectionner --</option>
+                        <option value="120">Renault Clio</option>
+                        <option value="130">Peugeot 208</option>
+                        <option value="180">Peugeot 508</option>
+                        <option value="200">Volkswagen Passat</option>
+                        <option value="150">Renault Kangoo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="dateDebut">Date de début :</label>
+                    <input type="date" id="dateDebut">
+                </div>
+
+                <div>
+                    <label for="dateFin">Date de fin :</label>
+                    <input type="date" id="dateFin">
+                </div>
+
+                <div>
+                    <label for="prixTotal">Prix estimé :</label>
+                    <input type="text" id="prixTotal" readonly>
+                </div>
+
+                <div>
+                    <button type="button" onclick="calculerPrix()">
+                        Calculer le prix
+                    </button>
+
+                    <button type="submit">
+                        Réserver
+                    </button>
+                </div>
+
+                <p id="message"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pied de page -->
+    <footer>
+
+        <p>
+            © 2026 Auto Rent - Agence de location de voitures
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

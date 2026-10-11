@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auto Rent - Location de voitures</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="node_modules/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css">
+    <link rel="stylesheet" href="node_modules/datatables.net-bs5/css/dataTables.bootstrap5.min.css">
+</head>
+
+<body>
+
+    <!-- En-tête -->
+    <header class="bg-primary text-white py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-2">AUTO RENT</h1>
+            <p class="lead mb-0">Agence de location de voitures</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar bg-body-tertiary border-bottom sticky-top">
+        <div class="container">
+            <div class="navbar-nav flex-row flex-wrap gap-2">
+                <a class="nav-link px-3" href="#accueil">Accueil</a>
+                <a class="nav-link px-3" href="#vehicules">Véhicules</a>
+                <a class="nav-link px-3" href="#catalogue">Catalogue</a>
+                <a class="nav-link px-3" href="#prix">Prix</a>
+                <a class="nav-link px-3" href="#reservation">Réservation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="container">
+
+        <!-- Accueil -->
+        <section id="accueil" class="py-5">
+
+            <div class="bg-primary-subtle rounded-4 p-4 p-md-5">
+                <h2 class="display-6 fw-semibold">Bienvenue chez Auto Rent</h2>
+
+                <p class="lead mb-0">
+                    Auto Rent vous propose des voitures adaptées à vos besoins
+                    pour vos déplacements professionnels ou personnels.
+                </p>
+            </div>
+
+        </section>
+
+
+        <section id="vehicules" class="pb-5" aria-labelledby="vehicules-title">
+            <h2 class="h1 mb-4" id="vehicules-title">Découvrez nos véhicules</h2>
+
+            <div id="vehicleCarousel" class="carousel card shadow-sm overflow-hidden" aria-label="Galerie de véhicules">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="ratio ratio-21x9 position-relative">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                                 src="images/img1.jpeg" alt="Voiture citadine">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="h5 card-title">Citadine</h3>
+                            <p class="card-text mb-0">Compacte et économique, idéale pour la ville.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="ratio ratio-21x9 position-relative">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                                 src="images/img2.jpeg" alt="Voiture berline">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="h5 card-title">Berline</h3>
+                            <p class="card-text mb-0">Confort et espace pour vos longs trajets.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="ratio ratio-21x9 position-relative">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                                 src="images/img3.jpeg" alt="Véhicule commercial">
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="h5 card-title">Commerciale</h3>
+                            <p class="card-text mb-0">Un véhicule pratique pour vos marchandises.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-light rounded-circle position-absolute top-50 start-0 translate-middle-y ms-2 shadow"
+                        type="button" data-bs-target="#vehicleCarousel" data-bs-slide="prev"
+                        aria-label="Véhicule précédent">
+                    <span class="carousel-icon-prev" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-light rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 shadow"
+                        type="button" data-bs-target="#vehicleCarousel" data-bs-slide="next"
+                        aria-label="Véhicule suivant">
+                    <span class="carousel-icon-next" aria-hidden="true"></span>
+                </button>
+
+                <div class="carousel-indicators pb-2">
+                    <button class="active" type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="0"
+                            aria-label="Afficher la citadine" aria-current="true"></button>
+                    <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="1"
+                            aria-label="Afficher la berline"></button>
+                    <button type="button" data-bs-target="#vehicleCarousel" data-bs-slide-to="2"
+                            aria-label="Afficher le véhicule commercial"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalogue -->
+        <section id="categories" class="pb-5">
+
+            <h2 class="h1 mb-4">Nos catégories de véhicules</h2>
+
+            <div class="grid text-center">
+
+                <div class="g-col-12 sm:g-col-6 md:g-col-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="ratio ratio-16x9 position-relative overflow-hidden">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-top" src="images/img1.jpeg" alt="Voiture citadine">
+                        </div>
+
+                        <div class="card-body p-2">
+                            <h3 class="h6 card-title mb-1">Citadine</h3>
+
+                            <p class="card-text small mb-0">
+                                Voitures compactes et économiques, idéales en ville.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+
+                <div class="g-col-12 sm:g-col-6 md:g-col-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="ratio ratio-16x9 position-relative overflow-hidden">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-top" src="images/img2.jpeg" alt="Voiture berline">
+                        </div>
+
+                        <div class="card-body p-2">
+                            <h3 class="h6 card-title mb-1">Berline</h3>
+
+                            <p class="card-text small mb-0">
+                                Voitures confortables adaptées aux longs trajets.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+
+                <div class="g-col-12 sm:g-col-6 md:g-col-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="ratio ratio-16x9 position-relative overflow-hidden">
+                            <img class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover rounded-top" src="images/img3.jpeg" alt="Voiture commerciale">
+                        </div>
+
+                        <div class="card-body p-2">
+                            <h3 class="h6 card-title mb-1">Commerciale</h3>
+
+                            <p class="card-text small mb-0">
+                                Véhicules adaptés au transport de marchandises.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Prix -->
+        <section id="catalogue" class="pb-5">
+
+            <h2 class="h1 mb-4">Catalogue des véhicules</h2>
+
+            <div class="">
+                <table id="vehicleTable1" class="table table-striped table-hover align-middle mb-0">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Véhicule</th>
+                        <th>Puissance</th>
+                        <th>Prix / jour</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Citadine</td>
+                        <td>Renault Clio</td>
+                        <td>90 CV</td>
+                        <td>120 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Citadine</td>
+                        <td>Peugeot 208</td>
+                        <td>100 CV</td>
+                        <td>130 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Berline</td>
+                        <td>Peugeot 508</td>
+                        <td>130 CV</td>
+                        <td>180 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Berline</td>
+                        <td>Volkswagen Passat</td>
+                        <td>150 CV</td>
+                        <td>200 DT</td>
+                    </tr>
+
+                    <tr>
+                        <td>Commerciale</td>
+                        <td>Renault Kangoo</td>
+                        <td>95 CV</td>
+                        <td>150 DT</td>
+                    </tr>
+
+                </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+
+        <!-- Prix -->
+        <section id="prix" class="pb-5">
+
+            <div class="card border-0 bg-body-tertiary">
+                <div class="card-body p-4">
+                    <h2 class="h1 mb-3">Prix</h2>
+
+                    <p class="mb-0">
+                        Les prix sont calculés en fonction du véhicule choisi
+                        et du nombre de jours de location.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Réservation -->
+        <section id="reservation" class="pb-5">
+
+            <h2 class="h1 mb-4">Réservation</h2>
+
+            <form id="reservationForm" class="card shadow-sm needs-validation" novalidate>
+                <div class="card-body p-4">
+                    <div class="row g-3">
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="nom">Nom et prénom :</label>
+                            <input class="form-control" type="text" id="nom" required minlength="3">
+                            <div class="invalid-feedback">Saisissez un nom d'au moins 3 caractères.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="email">Email :</label>
+                            <input class="form-control" type="email" id="email" required>
+                            <div class="invalid-feedback">Saisissez une adresse email valide.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="telephone">Téléphone :</label>
+                            <input class="form-control" type="tel" id="telephone" required>
+                            <div class="invalid-feedback">Saisissez votre numéro de téléphone.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="categorie">Catégorie :</label>
+
+                            <select class="form-select js-select2" id="categorie" data-placeholder="Choisir une catégorie" required>
+                                <option value="">-- Sélectionner --</option>
+                                <option value="citadine">Citadine</option>
+                                <option value="berline">Berline</option>
+                                <option value="commerciale">Commerciale</option>
+                            </select>
+                            <div class="invalid-feedback">Sélectionnez une catégorie.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="voiture">Voiture :</label>
+
+                            <select class="form-select js-select2" id="voiture" data-placeholder="Choisir une voiture" required disabled>
+                                <option value="">-- Sélectionner une catégorie d'abord --</option>
+                                <option value="120" data-category="citadine">Renault Clio</option>
+                                <option value="130" data-category="citadine">Peugeot 208</option>
+                                <option value="180" data-category="berline">Peugeot 508</option>
+                                <option value="200" data-category="berline">Volkswagen Passat</option>
+                                <option value="150" data-category="commerciale">Renault Kangoo</option>
+                            </select>
+                            <div class="invalid-feedback">Sélectionnez une voiture.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="dateDebut">Date de début :</label>
+                            <input class="form-control" type="date" id="dateDebut" required>
+                            <div class="invalid-feedback">Sélectionnez une date de début.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="dateFin">Date de fin :</label>
+                            <input class="form-control" type="date" id="dateFin" required>
+                            <div class="invalid-feedback" id="dateFinFeedback">Sélectionnez une date de fin valide.</div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label" for="prix">Prix estimé :</label>
+                            <input class="form-control" type="text" id="prix" readonly>
+                        </div>
+
+                        <div class="col-12 d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-primary" id="calculatePrice" type="button">
+                                Calculer le prix
+                            </button>
+
+                            <button class="btn btn-primary" type="submit">
+                                Réserver
+                            </button>
+                        </div>
+
+                        <div class="col-12" id="message" role="status" aria-live="polite"></div>
+
+                    </div>
+                </div>
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pied de page -->
+    <footer class="bg-dark text-white-50 py-4">
+
+        <div class="container">
+            <p class="mb-0 text-center">
+                © 2026 Auto Rent - Agence de location de voitures
+            </p>
+        </div>
+
+    </footer>
+
+
+    <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/select2/dist/js/select2.min.js"></script>
+    <script src="node_modules/datatables.net/js/dataTables.min.js"></script>
+    <script src="node_modules/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
