@@ -1,3 +1,32 @@
+const themeToggle = document.getElementById("themeToggle");
+
+if (themeToggle) {
+    const themeIcon = document.getElementById("themeIcon");
+    const themeLabel = document.getElementById("themeLabel");
+    const themeStorageKey = "auto-rent-theme";
+    const savedTheme = localStorage.getItem(themeStorageKey);
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    function appliquerTheme(theme) {
+        const sombre = theme === "dark";
+
+        document.documentElement.setAttribute("data-bs-theme", theme);
+        themeIcon.textContent = sombre ? "☀" : "☾";
+        themeLabel.textContent = sombre ? "Mode clair" : "Mode sombre";
+    }
+
+    appliquerTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+    themeToggle.addEventListener("click", () => {
+        const prochainTheme = document.documentElement.getAttribute("data-bs-theme") === "dark"
+            ? "light"
+            : "dark";
+
+        localStorage.setItem(themeStorageKey, prochainTheme);
+        appliquerTheme(prochainTheme);
+    });
+}
+
 const reservationForm = document.getElementById("reservationForm");
 
 if (reservationForm) {
@@ -67,6 +96,7 @@ if (reservationForm) {
     function mettreAJourVoitures() {
         const categorieChoisie = categorie.value;
         const $voiture = $("#voiture");
+        const optionPlaceholder = voiture.querySelector('option[value=""]');
 
         $voiture.val("");
         voitureOptions.forEach((option) => {
@@ -77,6 +107,9 @@ if (reservationForm) {
             }
         });
 
+        optionPlaceholder.textContent = categorieChoisie
+            ? "-- Sélectionner une voiture --"
+            : "-- Sélectionner une catégorie d'abord --";
         voiture.disabled = !categorieChoisie;
 
         prixTotal.value = "";
