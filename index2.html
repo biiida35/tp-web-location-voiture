@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Louez la voiture idéale pour vos déplacements avec Biiida Auto Rent. Découvrez notre catalogue et estimez votre réservation en quelques clics."
+    />
+    <meta name="theme-color" content="#14213d" />
+    <title>Biiida Auto Rent - Location de voitures</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Navigation principale">
+      <div class="container">
+        <a
+          class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+          href="#accueil"
+          aria-label="Biiida Auto Rent, accueil"
+        >
+          <span class="nav-brand-mark" aria-hidden="true">B</span>
+          <span class="d-flex flex-column">
+            <span>
+              Biiida
+              <span class="text-primary">Auto Rent</span>
+            </span>
+            <span class="brand-tagline">Votre prochaine route commence ici</span>
+          </span>
+        </a>
+        <div class="navbar-actions d-flex align-items-center gap-2 ms-lg-auto">
+          <button
+            class="btn btn-sm btn-outline-primary rounded-pill d-inline-flex align-items-center gap-2 theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Activer le mode sombre"
+          >
+            <span id="themeIcon" aria-hidden="true">☾</span>
+            <span id="themeLabel">Mode sombre</span>
+          </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavigation"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <div class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-1 py-2 py-lg-0">
+            <a class="nav-link" href="#accueil">Accueil</a>
+            <a class="nav-link" href="#vehicules">Véhicules</a>
+            <a class="nav-link" href="#categories">Catégories</a>
+            <a class="nav-link" href="#catalogue">Catalogue</a>
+            <a class="nav-link" href="#prix">Tarifs</a>
+            <a class="nav-link" href="#reservation">Réservation</a>
+            <a class="nav-link" href="./index.html">Version HTML/CSS/JS</a>
+            <a class="nav-link" href="./catalogue.html">Catalogue complet</a>
+            <a class="nav-link" href="./contact.html">Contact</a>
+            <a class="nav-link" href="./devis.html">Devis imprimable</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="container">
+      <!-- Accueil -->
+      <section id="accueil" class="hero-section py-4 py-lg-5">
+        <div class="hero-panel rounded-4 p-4 p-md-5 p-xl-6">
+          <div class="hero-copy position-relative z-1">
+            <span class="eyebrow">La route vous appartient</span>
+            <h1 class="display-4 fw-bold mt-3">
+              La bonne voiture.
+              <br />
+              Le bon voyage.
+            </h1>
+            <p class="lead hero-description mt-3 mb-4">
+              Trouvez le véhicule qui vous ressemble et prenez la route en toute liberté, pour un jour ou pour plus
+              longtemps.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-primary btn-lg" href="#reservation">
+                Réserver maintenant
+                <span aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn-outline-light btn-lg" href="#catalogue">Voir le catalogue</a>
+            </div>
+          </div>
+          <div class="hero-note d-none d-md-flex align-items-center gap-3">
+            <span class="hero-note-icon" aria-hidden="true">✓</span>
+            <span>
+              <strong>Simple et flexible</strong>
+              <small class="d-block">Réservez en quelques étapes</small>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section id="vehicules" class="pb-5" aria-labelledby="vehicules-title">
+        <div class="section-heading d-flex flex-wrap align-items-end justify-content-between gap-3 mb-4">
+          <div>
+            <span class="section-kicker">Une voiture pour chaque trajet</span>
+            <h2 class="h1 mb-0" id="vehicules-title">Découvrez nos véhicules</h2>
+          </div>
+          <a class="section-link" href="#categories">
+            Explorer les catégories
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div
+          id="vehicleCarousel"
+          class="carousel slide vehicle-carousel card overflow-hidden"
+          aria-label="Galerie de véhicules"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="ratio ratio-21x9 position-relative">
+                <img
+                  class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                  src="./images/citadine.jpg"
+                  alt="Peugeot 208, voiture citadine"
+                />
+              </div>
+              <div class="card-body text-center py-3 py-md-4">
+                <h3 class="h5 card-title">Citadine</h3>
+                <p class="card-text mb-0">Compacte et économique, idéale pour la ville.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="ratio ratio-21x9 position-relative">
+                <img
+                  class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                  src="./images/berline.jpg"
+                  alt="Peugeot 508, voiture berline"
+                />
+              </div>
+              <div class="card-body text-center py-3 py-md-4">
+                <h3 class="h5 card-title">Berline</h3>
+                <p class="card-text mb-0">Confort et espace pour vos longs trajets.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="ratio ratio-21x9 position-relative">
+                <img
+                  class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+                  src="./images/commerciale.jpg"
+                  alt="Citroën Jumpy, véhicule utilitaire"
+                />
+              </div>
+              <div class="card-body text-center py-3 py-md-4">
+                <h3 class="h5 card-title">Commerciale</h3>
+                <p class="card-text mb-0">Un véhicule pratique pour vos marchandises.</p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-button btn btn-light rounded-circle position-absolute top-50 start-0 translate-middle-y ms-2 shadow"
+            type="button"
+            data-bs-target="#vehicleCarousel"
+            data-bs-slide="prev"
+            aria-label="Véhicule précédent"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button
+            class="carousel-control-button btn btn-light rounded-circle position-absolute top-50 end-0 translate-middle-y me-2 shadow"
+            type="button"
+            data-bs-target="#vehicleCarousel"
+            data-bs-slide="next"
+            aria-label="Véhicule suivant"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+
+          <div class="carousel-indicators pb-2">
+            <button
+              class="active"
+              type="button"
+              data-bs-target="#vehicleCarousel"
+              data-bs-slide-to="0"
+              aria-label="Afficher la citadine"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#vehicleCarousel"
+              data-bs-slide-to="1"
+              aria-label="Afficher la berline"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#vehicleCarousel"
+              data-bs-slide-to="2"
+              aria-label="Afficher le véhicule commercial"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalogue -->
+      <section id="categories" class="pb-5" aria-labelledby="categories-title">
+        <div class="section-heading mb-4">
+          <span class="section-kicker">Choisissez votre style de trajet</span>
+          <h2 class="h1 mb-0" id="categories-title">Nos catégories de véhicules</h2>
+        </div>
+
+        <div class="row g-4">
+          <article class="card category-card h-100 col-12 col-md-6 col-lg-4">
+            <div class="category-image position-relative">
+              <img src="./images/citadine.jpg" alt="Peugeot 208, voiture citadine" loading="lazy" />
+              <span class="category-tag">Ville</span>
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 card-title">Citadine</h3>
+              <p class="card-text text-body-secondary flex-grow-1">
+                Compacte et économique, parfaite pour se déplacer en ville.
+              </p>
+              <a class="category-link mt-2" href="#catalogue" data-category-filter="Citadine">
+                Voir les modèles
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="card category-card h-100 col-12 col-md-6 col-lg-4">
+            <div class="category-image position-relative">
+              <img src="./images/berline.jpg" alt="Peugeot 508, voiture berline" loading="lazy" />
+              <span class="category-tag">Confort</span>
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 card-title">Berline</h3>
+              <p class="card-text text-body-secondary flex-grow-1">
+                Plus d’espace et de confort pour vos longs trajets.
+              </p>
+              <a class="category-link mt-2" href="#catalogue" data-category-filter="Berline">
+                Voir les modèles
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="card category-card h-100 col-12 col-md-6 col-lg-4">
+            <div class="category-image position-relative">
+              <img src="./images/commerciale.jpg" alt="Citroën Jumpy, véhicule utilitaire" loading="lazy" />
+              <span class="category-tag">Espace</span>
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <h3 class="h5 card-title">Commerciale</h3>
+              <p class="card-text text-body-secondary flex-grow-1">
+                L’espace pratique pour vos besoins professionnels et vos marchandises.
+              </p>
+              <a class="category-link mt-2" href="#catalogue" data-category-filter="Commerciale">
+                Voir les modèles
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogue" class="pb-5" aria-labelledby="catalogue-title">
+        <div class="section-heading mb-4">
+          <span class="section-kicker">Notre sélection</span>
+          <h2 class="h1 mb-2" id="catalogue-title">Catalogue des véhicules</h2>
+          <p class="text-body-secondary mb-0">Comparez les modèles et trouvez celui qui convient à votre trajet.</p>
+        </div>
+        <div id="vehicleDataStatus" class="alert alert-info" role="status">Chargement des véhicules…</div>
+
+        <div class="catalogue-panel">
+          <div class="catalogue-tools row g-3 align-items-end mb-4">
+            <div class="col-12 col-md-7 col-lg-8">
+              <label class="form-label fw-semibold" for="vehicleSearch">Rechercher un véhicule</label>
+              <input
+                class="form-control"
+                type="search"
+                id="vehicleSearch"
+                placeholder="Ex. Peugeot, Berline…"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-8 col-md-4 col-lg-3">
+              <label class="form-label fw-semibold" for="categoryFilter">Catégorie</label>
+              <select class="form-select" id="categoryFilter">
+                <option value="">Toutes les catégories</option>
+                <option value="Citadine">Citadine</option>
+                <option value="Berline">Berline</option>
+                <option value="Commerciale">Commerciale</option>
+              </select>
+            </div>
+            <div class="col-4 col-md-1 col-lg-1 d-grid">
+              <button
+                class="btn btn-outline-secondary"
+                id="clearFilters"
+                type="button"
+                aria-label="Effacer les filtres"
+              >
+                Effacer
+              </button>
+            </div>
+            <div class="col-12">
+              <p class="small text-body-secondary mb-0" id="vehicleCount" aria-live="polite"></p>
+            </div>
+          </div>
+          <div id="vehicleGrid" class="vehicle-grid">
+            <article class="vehicle-item" data-category="Citadine">
+              <div class="vehicle-card h-100">
+                <div class="vehicle-image">
+                  <img src="./images/citadine.jpg" alt="Voiture citadine" loading="lazy" />
+                  <span class="category-tag">Citadine</span>
+                </div>
+                <div class="vehicle-card-body">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <p class="vehicle-make mb-1">Renault</p>
+                      <h3 class="h5 mb-0">Clio</h3>
+                    </div>
+                    <span class="vehicle-power">90 CV</span>
+                  </div>
+                  <div class="vehicle-card-footer">
+                    <p class="vehicle-price mb-0">
+                      <strong>120 DT</strong>
+                      <span>/ jour</span>
+                    </p>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href="#reservation"
+                      data-book-category="citadine"
+                      data-book-vehicle="Renault Clio"
+                    >
+                      Réserver
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="vehicle-item" data-category="Citadine">
+              <div class="vehicle-card h-100">
+                <div class="vehicle-image">
+                  <img src="./images/citadine.jpg" alt="Peugeot 208, voiture citadine" loading="lazy" />
+                  <span class="category-tag">Citadine</span>
+                </div>
+                <div class="vehicle-card-body">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <p class="vehicle-make mb-1">Peugeot</p>
+                      <h3 class="h5 mb-0">208</h3>
+                    </div>
+                    <span class="vehicle-power">100 CV</span>
+                  </div>
+                  <div class="vehicle-card-footer">
+                    <p class="vehicle-price mb-0">
+                      <strong>130 DT</strong>
+                      <span>/ jour</span>
+                    </p>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href="#reservation"
+                      data-book-category="citadine"
+                      data-book-vehicle="Peugeot 208"
+                    >
+                      Réserver
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="vehicle-item" data-category="Berline">
+              <div class="vehicle-card h-100">
+                <div class="vehicle-image">
+                  <img src="./images/berline.jpg" alt="Peugeot 508, voiture berline" loading="lazy" />
+                  <span class="category-tag">Berline</span>
+                </div>
+                <div class="vehicle-card-body">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <p class="vehicle-make mb-1">Peugeot</p>
+                      <h3 class="h5 mb-0">508</h3>
+                    </div>
+                    <span class="vehicle-power">130 CV</span>
+                  </div>
+                  <div class="vehicle-card-footer">
+                    <p class="vehicle-price mb-0">
+                      <strong>180 DT</strong>
+                      <span>/ jour</span>
+                    </p>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href="#reservation"
+                      data-book-category="berline"
+                      data-book-vehicle="Peugeot 508"
+                    >
+                      Réserver
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="vehicle-item" data-category="Berline">
+              <div class="vehicle-card h-100">
+                <div class="vehicle-image">
+                  <img src="./images/berline.jpg" alt="Voiture berline" loading="lazy" />
+                  <span class="category-tag">Berline</span>
+                </div>
+                <div class="vehicle-card-body">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <p class="vehicle-make mb-1">Volkswagen</p>
+                      <h3 class="h5 mb-0">Passat</h3>
+                    </div>
+                    <span class="vehicle-power">150 CV</span>
+                  </div>
+                  <div class="vehicle-card-footer">
+                    <p class="vehicle-price mb-0">
+                      <strong>200 DT</strong>
+                      <span>/ jour</span>
+                    </p>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href="#reservation"
+                      data-book-category="berline"
+                      data-book-vehicle="Volkswagen Passat"
+                    >
+                      Réserver
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="vehicle-item" data-category="Commerciale">
+              <div class="vehicle-card h-100">
+                <div class="vehicle-image">
+                  <img src="./images/commerciale.jpg" alt="Citroën Jumpy, véhicule utilitaire" loading="lazy" />
+                  <span class="category-tag">Commerciale</span>
+                </div>
+                <div class="vehicle-card-body">
+                  <div class="d-flex justify-content-between align-items-start gap-2">
+                    <div>
+                      <p class="vehicle-make mb-1">Citroën</p>
+                      <h3 class="h5 mb-0">Jumpy</h3>
+                    </div>
+                    <span class="vehicle-power">95 CV</span>
+                  </div>
+                  <div class="vehicle-card-footer">
+                    <p class="vehicle-price mb-0">
+                      <strong>150 DT</strong>
+                      <span>/ jour</span>
+                    </p>
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href="#reservation"
+                      data-book-category="commerciale"
+                      data-book-vehicle="Citroën Jumpy"
+                    >
+                      Réserver
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <p id="noVehicles" class="d-none py-5 text-center text-body-secondary" role="status">
+              Aucun véhicule ne correspond à votre recherche.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="prix" class="pb-5" aria-labelledby="prices-title">
+        <div class="section-heading mb-4">
+          <span class="section-kicker">Clairs et sans surprise</span>
+          <h2 class="h1 mb-2" id="prices-title">Des tarifs adaptés à votre trajet</h2>
+          <p class="text-body-secondary mb-0">Le montant final dépend du modèle choisi et de la durée de location.</p>
+        </div>
+        <div class="row g-4">
+          <article class="price-card card h-100 col-12 col-md-6 col-lg-4">
+            <div class="card-body p-4">
+              <span class="price-icon" aria-hidden="true">↗</span>
+              <h3 class="h5 mt-3">Citadine</h3>
+              <p class="text-body-secondary">Agile et économique en ville.</p>
+              <p class="price-amount mb-3">
+                Dès
+                <strong>120 DT</strong>
+                <span>/ jour</span>
+              </p>
+              <a class="btn btn-outline-primary w-100" href="#reservation" data-book-category="citadine">
+                Choisir cette catégorie
+              </a>
+            </div>
+          </article>
+          <article class="price-card card h-100 col-12 col-md-6 col-lg-4">
+            <div class="card-body p-4">
+              <span class="price-icon" aria-hidden="true">⌁</span>
+              <h3 class="h5 mt-3">Berline</h3>
+              <p class="text-body-secondary">Confort et espace sur la route.</p>
+              <p class="price-amount mb-3">
+                Dès
+                <strong>180 DT</strong>
+                <span>/ jour</span>
+              </p>
+              <a class="btn btn-outline-primary w-100" href="#reservation" data-book-category="berline">
+                Choisir cette catégorie
+              </a>
+            </div>
+          </article>
+          <article class="price-card card h-100 col-12 col-md-6 col-lg-4">
+            <div class="card-body p-4">
+              <span class="price-icon" aria-hidden="true">▰</span>
+              <h3 class="h5 mt-3">Commerciale</h3>
+              <p class="text-body-secondary">L’espace qu’il vous faut pour transporter.</p>
+              <p class="price-amount mb-3">
+                Dès
+                <strong>150 DT</strong>
+                <span>/ jour</span>
+              </p>
+              <a class="btn btn-outline-primary w-100" href="#reservation" data-book-category="commerciale">
+                Choisir cette catégorie
+              </a>
+            </div>
+          </article>
+        </div>
+        <p class="small text-body-secondary mt-3 mb-0">
+          Tarifs indicatifs pour le modèle le plus accessible de chaque catégorie.
+        </p>
+      </section>
+
+      <!-- Réservation -->
+      <section id="reservation" class="pb-5" aria-labelledby="reservation-title">
+        <div class="section-heading mb-4">
+          <span class="section-kicker">Prêt à prendre la route ?</span>
+          <h2 class="h1 mb-2" id="reservation-title">Préparez votre réservation</h2>
+          <p class="text-body-secondary mb-0">Renseignez vos informations pour estimer le prix de votre location.</p>
+        </div>
+
+        <form
+          id="reservationForm"
+          class="card reservation-card needs-validation"
+          aria-labelledby="reservation-title"
+          novalidate
+        >
+          <div class="card-body p-4">
+            <div class="row g-3">
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="nom">Nom et prénom</label>
+                <input class="form-control" type="text" id="nom" autocomplete="name" required minlength="3" />
+                <div class="invalid-feedback">Saisissez un nom d'au moins 3 caractères.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="email">Adresse e-mail</label>
+                <input class="form-control" type="email" id="email" autocomplete="email" required />
+                <div class="invalid-feedback">Saisissez une adresse email valide.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="telephone">Téléphone</label>
+                <input class="form-control" type="tel" id="telephone" autocomplete="tel" inputmode="tel" required />
+                <div class="invalid-feedback">Saisissez votre numéro de téléphone.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="categorie">Catégorie</label>
+
+                <select
+                  class="form-select js-select2"
+                  id="categorie"
+                  data-placeholder="Choisissez une catégorie"
+                  required
+                >
+                  <option value="">-- Sélectionner --</option>
+                  <option value="Citadine">Citadine</option>
+                  <option value="Berline">Berline</option>
+                  <option value="Commerciale">Commerciale</option>
+                </select>
+                <div class="invalid-feedback">Sélectionnez une catégorie.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="voiture">Voiture</label>
+
+                <select
+                  class="form-select js-select2"
+                  id="voiture"
+                  data-placeholder="Choisissez un véhicule"
+                  required
+                  disabled
+                >
+                  <option value="">-- Sélectionner une catégorie d'abord --</option>
+                </select>
+                <div class="invalid-feedback">Sélectionnez une voiture.</div>
+                <p class="small text-body-secondary mb-0" id="dailyRate" aria-live="polite">
+                  Sélectionnez un véhicule disponible pour afficher le tarif journalier.
+                </p>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="dateDebut">Date de début</label>
+                <input class="form-control" type="date" id="dateDebut" required />
+                <div class="invalid-feedback">Sélectionnez une date de début.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="dateFin">Date de fin</label>
+                <input class="form-control" type="date" id="dateFin" required />
+                <div class="invalid-feedback" id="dateFinFeedback">Sélectionnez une date de fin valide.</div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <label class="form-label fw-semibold" for="prixTotal">Prix estimé</label>
+                <input
+                  class="form-control price-output fw-bold"
+                  type="text"
+                  id="prixTotal"
+                  placeholder="Calculé après sélection"
+                  readonly
+                />
+              </div>
+
+              <div class="col-12 d-flex flex-wrap gap-2">
+                <button class="btn btn-outline-primary" id="calculatePrice" type="button">Calculer mon prix</button>
+
+                <button class="btn btn-primary" type="submit">Valider ma demande</button>
+              </div>
+
+              <div class="col-12" id="message" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="site-footer py-4">
+      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+        <a class="brand d-inline-flex align-items-center gap-2 text-decoration-none" href="#accueil">
+          <span class="brand-mark brand-mark-small" aria-hidden="true">B</span>
+          <span class="fw-bold">Biiida Auto Rent</span>
+        </a>
+        <p class="small text-body-secondary text-center mb-0">© 2026 Biiida Auto Rent · Votre route, votre liberté.</p>
+        <a class="small text-decoration-none" href="#accueil">Retour en haut ↑</a>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./data/vehicles.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

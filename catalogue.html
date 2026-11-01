@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Recherchez, triez et comparez le catalogue de voitures Biiida Auto Rent." />
+    <title>Catalogue des véhicules - Biiida Auto Rent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="./index.html">
+          Biiida
+          <span class="text-primary">Auto Rent</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation"
+          aria-expanded="false"
+          aria-label="Ouvrir le menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" href="./index.html">Accueil</a>
+            <a class="nav-link" href="./index2.html">Présentation</a>
+            <a class="nav-link" href="./contact.html">Contact</a>
+            <a class="nav-link" href="./devis.html">Devis</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <header class="section-heading mb-4">
+        <span class="section-kicker">50 modèles disponibles au catalogue</span>
+        <h1 class="display-5 fw-bold">Catalogue des véhicules</h1>
+        <p class="text-body-secondary">Le tableau permet la recherche, le tri par colonne et la pagination.</p>
+      </header>
+      <div id="vehicleDataStatus" class="alert alert-info" role="status">Chargement des véhicules…</div>
+      <div id="vehicleTableCard" class="card table-card p-3 p-md-4 d-none">
+        <div class="table-responsive">
+          <table id="vehicleTable" class="table table-striped table-hover align-middle w-100">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Catégorie</th>
+                <th>Véhicule</th>
+                <th>Puissance</th>
+                <th>Prix/jour</th>
+                <th>Disponibilité</th>
+              </tr>
+            </thead>
+            <tbody id="vehicleTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <p class="mt-4">
+        <a class="btn btn-primary" href="./devis.html">Créer un devis imprimable</a>
+      </p>
+    </main>
+    <footer class="site-footer py-4">
+      <div class="container">
+        <a href="./index.html">Biiida Auto Rent</a>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./data/vehicles.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

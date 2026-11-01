@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Calculez puis imprimez un devis de location de voiture Biiida Auto Rent." />
+    <title>Devis de location - Biiida Auto Rent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg site-nav sticky-top no-print" aria-label="Navigation principale">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="./index.html">
+          Biiida
+          <span class="text-primary">Auto Rent</span>
+        </a>
+        <div class="navbar-nav ms-auto flex-row gap-3">
+          <a class="nav-link" href="./index.html">Accueil</a>
+          <a class="nav-link" href="./catalogue.html">Catalogue</a>
+          <a class="nav-link" href="./contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container py-5">
+      <section class="section-heading mb-4 no-print">
+        <span class="section-kicker">Simulation sans engagement</span>
+        <h1 class="display-5 fw-bold">Votre devis de location</h1>
+        <p class="text-body-secondary">
+          Le total est calculé en nombre de jours × tarif journalier. Une location sur la même date compte pour un jour.
+        </p>
+      </section>
+      <div id="vehicleDataStatus" class="alert alert-info no-print" role="status">Chargement des véhicules…</div>
+      <form id="quoteForm" class="card reservation-card needs-validation no-print" novalidate>
+        <div class="card-body p-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="quoteName">Nom du client</label>
+              <input class="form-control" id="quoteName" required minlength="3" />
+              <div class="invalid-feedback">Saisissez votre nom.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="quoteCategory">Catégorie</label>
+              <select
+                class="form-select js-select2"
+                id="quoteCategory"
+                data-placeholder="Choisissez une catégorie"
+                required
+              >
+                <option value="">Sélectionner</option>
+                <option>Citadine</option>
+                <option>Berline</option>
+                <option>Commerciale</option>
+              </select>
+              <div class="invalid-feedback">Choisissez une catégorie.</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="quoteVehicle">Véhicule disponible</label>
+              <select
+                class="form-select js-select2"
+                id="quoteVehicle"
+                data-placeholder="Choisissez un véhicule"
+                required
+                disabled
+              >
+                <option value="">Choisissez une catégorie d’abord</option>
+              </select>
+              <div class="invalid-feedback">Choisissez un véhicule disponible.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="quoteStart">Date de début</label>
+              <input class="form-control" id="quoteStart" type="date" required />
+              <div class="invalid-feedback">Choisissez une date de début.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="quoteEnd">Date de fin</label>
+              <input class="form-control" id="quoteEnd" type="date" required />
+              <div class="invalid-feedback">Choisissez une date de fin valide.</div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Calculer le devis</button>
+            </div>
+            <div class="col-12" id="quoteFeedback" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+      </form>
+      <section id="quoteResult" class="card table-card p-4 mt-4" aria-labelledby="quoteHeading" hidden>
+        <h2 class="h3" id="quoteHeading">Devis estimatif — Biiida Auto Rent</h2>
+        <dl class="row mt-3">
+          <dt class="col-sm-4">Client</dt>
+          <dd class="col-sm-8" id="quoteCustomer"></dd>
+          <dt class="col-sm-4">Catégorie</dt>
+          <dd class="col-sm-8" id="quoteVehicleCategory"></dd>
+          <dt class="col-sm-4">Véhicule</dt>
+          <dd class="col-sm-8" id="quoteCar"></dd>
+          <dt class="col-sm-4">Date de début</dt>
+          <dd class="col-sm-8" id="quoteStartDate"></dd>
+          <dt class="col-sm-4">Date de fin</dt>
+          <dd class="col-sm-8" id="quoteEndDate"></dd>
+          <dt class="col-sm-4">Nombre de jours</dt>
+          <dd class="col-sm-8" id="quoteDays"></dd>
+          <dt class="col-sm-4">Tarif journalier</dt>
+          <dd class="col-sm-8" id="quoteDailyPrice"></dd>
+          <dt class="col-sm-4">Total estimé</dt>
+          <dd class="col-sm-8 fs-4 fw-bold text-primary" id="quoteTotal"></dd>
+        </dl>
+        <p class="small text-body-secondary">
+          Devis indicatif généré par le mini-projet TP. Il ne constitue pas une réservation.
+        </p>
+      </section>
+      <button class="btn btn-outline-primary mt-3 no-print" id="printQuote" type="button" hidden>
+        Imprimer le devis
+      </button>
+    </main>
+    <footer class="site-footer py-4 no-print">
+      <div class="container">
+        <a href="./index.html">Biiida Auto Rent</a>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="./data/vehicles.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

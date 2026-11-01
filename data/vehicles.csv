@@ -1,0 +1,51 @@
+id,category,brand,model,power,pricePerDay,available
+1,Citadine,Renault,Clio,90,120,true
+2,Citadine,Peugeot,208,100,130,true
+3,Citadine,Citroen,C3,83,125,true
+4,Citadine,Toyota,Yaris,116,145,true
+5,Citadine,Volkswagen,Polo,95,140,true
+6,Citadine,Dacia,Sandero,90,110,true
+7,Citadine,Hyundai,i20,100,125,true
+8,Citadine,Kia,Rio,100,130,true
+9,Citadine,Fiat,500,70,115,true
+10,Citadine,Opel,Corsa,100,125,true
+11,Citadine,Ford,Fiesta,95,120,true
+12,Citadine,Seat,Ibiza,95,125,true
+13,Citadine,Skoda,Fabia,95,125,true
+14,Citadine,Nissan,Micra,92,120,true
+15,Citadine,Suzuki,Swift,83,115,true
+16,Citadine,Honda,Jazz,109,135,true
+17,Citadine,Mazda,2,90,130,true
+18,Citadine,Mitsubishi,Space Star,71,105,true
+19,Citadine,Renault,Twingo,75,100,false
+20,Citadine,Peugeot,108,72,105,true
+21,Berline,Peugeot,508,130,180,true
+22,Berline,Volkswagen,Passat,150,200,true
+23,Berline,Renault,Talisman,160,190,true
+24,Berline,Toyota,Corolla,140,185,true
+25,Berline,Skoda,Octavia,150,190,true
+26,Berline,Hyundai,Elantra,128,175,true
+27,Berline,Kia,Cerato,128,170,true
+28,Berline,BMW,Serie 3,184,280,true
+29,Berline,Mercedes-Benz,Classe C,170,300,true
+30,Berline,Audi,A4,150,270,true
+31,Berline,Volvo,S60,163,260,true
+32,Berline,Mazda,6,165,220,true
+33,Berline,Honda,Accord,192,230,true
+34,Berline,Nissan,Altima,188,220,true
+35,Berline,Opel,Insignia,140,190,true
+36,Berline,Ford,Mondeo,150,195,true
+37,Berline,Peugeot,408,130,180,false
+38,Berline,Skoda,Superb,150,215,true
+39,Berline,Toyota,Camry,218,240,true
+40,Berline,Volkswagen,Jetta,150,185,true
+41,Commerciale,Citroen,Jumpy,120,150,true
+42,Commerciale,Renault,Trafic,120,155,true
+43,Commerciale,Peugeot,Expert,120,150,true
+44,Commerciale,Ford,Transit Custom,130,165,true
+45,Commerciale,Mercedes-Benz,Vito,136,210,true
+46,Commerciale,Volkswagen,Transporter,150,190,true
+47,Commerciale,Fiat,Ducato,140,170,true
+48,Commerciale,Opel,Vivaro,120,150,true
+49,Commerciale,Toyota,Proace,120,155,true
+50,Commerciale,Nissan,NV300,120,150,true
